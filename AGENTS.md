@@ -24,6 +24,14 @@
   - `python llm_based_eval/longmem_qa_evaluate.py`
   - `python llm_based_eval/summarization_evaluate.py`
 
+### 常用脚本：仅运行 mem0 的 ∞‑Bench（InfBench Summarization）
+- 位置：`scripts/run_mem0_infbench.sh`
+- 使用示例：
+  - `bash scripts/run_mem0_infbench.sh`（默认配置）
+  - `bash scripts/run_mem0_infbench.sh --gpu 0 --max 50`（指定 GPU 与最多查询数）
+  - `bash scripts/run_mem0_infbench.sh --chunk 2048 --force`（修改 chunk size 并强制重跑）
+  - `bash scripts/run_mem0_infbench.sh -- --max_test_queries_ablation 20`（通过 `--` 追加原生参数）
+
 ## 代码风格与命名
 - Python 3.10+、四空格缩进、遵循 PEP 8；推荐类型标注与必要 docstring。
 - 库代码中使用 `logging.getLogger(__name__)`（参考 `main.py`）替代 `print`。
@@ -47,4 +55,3 @@
 ## 工作约定
 - 遵循最小修改原则：仅在必要范围内变更，保持与现有风格一致。
 - 涉及大规模运行或影响评测结果的改动，应先在小样本/少量查询上验证再扩展。
-
